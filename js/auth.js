@@ -2,7 +2,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAxpsXzKUYdEzlbuM6znZpd8ZNhUfJiiPc",
   authDomain: "xayz-ai-id.firebaseapp.com",
   projectId: "xayz-ai-id",
-  storageBucket: "xayz-ai-id.firebasestorage.app",
+  storageBucket: "xayz-ai-id.appspot.com",
   messagingSenderId: "410799810395",
   appId: "1:410799810395:web:e010f40c21713a0f965c7e"
 };
