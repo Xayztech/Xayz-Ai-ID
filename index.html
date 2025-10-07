@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝗫Λ𝗬𝗭 AI ID</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1 class="title-small">
+            <span class="text-blue-400">𝗫Λ𝗬𝗭</span> 
+            <span class="text-purple-400">AI</span>
+        </h1>
+        <div class="user-menu">
+            <button id="settings-btn" class="icon-btn" title="Pengaturan">
+                <img id="user-photo" src="https://via.placeholder.com/40" alt="User Photo" class="user-photo">
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content" class="main-container">
+        <div id="chat-interface">
+             <div class="message-placeholder">
+                <h1 class="title">
+                    <span class="text-blue-400">𝗫Λ𝗬𝗭</span> 
+                    <span class="text-purple-400">AI</span> 
+                    <span class="text-green-400">ID</span>
+                </h1>
+                <p>Silakan mulai percakapan atau gunakan alat lainnya.</p>
+             </div>
+        </div>
+
+        <div id="image-gen-interface" class="hidden">
+            <div id="image-gen-result-container"></div>
+            <div id="image-gen-loader" class="loader-container hidden">
+                <div class="loader"></div>
+                <p>Sedang melukis imajinasimu...</p>
+            </div>
+        </div>
+
+        <div id="tools-interface" class="hidden">
+            <div id="tools-result-container"></div>
+            <div id="tools-loader" class="loader-container hidden">
+                <div class="loader"></div>
+                <p>Sedang memproses permintaanmu...</p>
+            </div>
+            <div id="tools-grid"></div>
+        </div>
+    </main>
+    
+    <footer class="chat-footer">
+        <div class="footer-container">
+            <div class="mode-switcher">
+                <button id="mode-chat" class="mode-btn active" title="Mode Chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                </button>
+                <button id="mode-image-gen" class="mode-btn" title="Buat Gambar (AI)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                </button>
+                <button id="mode-tools" class="mode-btn" title="Alat Edit">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="m13.5 5.5 4 4 L5 22H1v-4l12.5-12.5zm6.2-2.7c.4-.4.4-1 0-1.4l-2.1-2.1c-.4-.4-1-.4-1.4 0L15 2.5l4 4 1.2-1.2z"/></svg>
+                </button>
+            </div>
+
+            <form id="chat-form" class="chat-form">
+                <textarea id="prompt-input-chat" placeholder="Tanyakan apa saja..." rows="1"></textarea>
+                <button type="submit" class="send-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </form>
+
+            <form id="image-gen-form" class="chat-form hidden">
+                <textarea id="prompt-input-image-gen" placeholder="Jelaskan gambar yang kamu mau..." rows="1"></textarea>
+                <button type="submit" class="send-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </form>
+        </div>
+    </footer>
+
+    <div id="settings-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal-btn" class="close-btn">&times;</button>
+            <h2>Pengaturan</h2>
+            <div class="setting-section">
+                <h3>Profil</h3>
+                <div class="profile-view">
+                    <img id="profile-modal-photo" src="https://via.placeholder.com/80" alt="Profile Photo">
+                    <div>
+                        <strong id="profile-modal-name">Nama Pengguna</strong>
+                        <span id="profile-modal-email">email@pengguna.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="setting-section">
+                <h3>Tema Tampilan</h3>
+                <select id="theme-selector" class="select-box">
+                    <option value="system">Sesuai Sistem</option>
+                    <option value="light">Terang</option>
+                    <option value="dark">Gelap</option>
+                </select>
+            </div>
+            <div class="setting-section">
+                <h3>Wallpaper Latar</h3>
+                <p>Gunakan URL gambar untuk mengganti latar belakang.</p>
+                <input type="text" id="wallpaper-input" class="input-box" placeholder="https://contoh.com/gambar.jpg">
+                <button id="save-wallpaper-btn" class="action-btn">Simpan Wallpaper</button>
+                <button id="reset-wallpaper-btn" class="action-btn secondary">Reset</button>
+            </div>
+            <div class="setting-section about-section">
+                <h3>Tentang 𝗫Λ𝗬𝗭 AI ID</h3>
+                <p>Versi: 1.0.0</p>
+                <p>Lisensi: MIT License</p>
+                <p>Sebuah asisten AI multifungsi yang siap membantumu.</p>
+            </div>
+            <button id="logout-btn" class="logout-btn">Log Out</button>
+        </div>
+    </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
